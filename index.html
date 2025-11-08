@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun Salwa Nabila Sayangku🎂</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f488ac;
+      text-align: center;
+      padding: 50px;
+      overflow-x: hidden;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #e54f81;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+    }
+    .hasil {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #e30775;
+    }
+    .foto-romantis {
+      width: 250px;
+      height: auto;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgb(254, 82, 168);
+      transition: transform 0.3s ease;
+    }
+    .foto-romantis:hover {
+      transform: scale(1.05);
+    }
+    .love {
+      position: absolute;
+      font-size: 24px;
+      pointer-events: none;
+      animation: fall 5s linear forwards;
+      color: #ff6699;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Selamat Ulang Tahun Salwa Nabila Sayangku🎂🤍</h1>
+  <h2>Pencet lagunya ya sayang💖💗</h2>
+  <br><audio autoplay loop controls>
+    <source src="Tulus - Monokrom _ Lirik Lagu (Lyrics) [8zvxqKhWE9o].mp3" type="audio/mpeg">
+    Maaf, peramban Anda tidak mendukung elemen audio.
+  </audio></br>
+   <img src="Screenshot 2025-09-19 144517.png" alt="Foto Sayang" class="foto-romantis">
+   <img src="Screenshot 2025-09-19 144239.png" alt="Foto Sayang" class="foto-romantis">
+   <h4><br>🤍Untuk duniaku🌍 Salwa Nabila🤍, selamat ulang tahun🎂. Kamu adalah melodi terindah dalam hidupku💝💐,<br> 
+   dan setiap tahun yang kita lewati bersama adalah bait-bait lagu yang penuh dengan kenangan terindah💝💕.
+        <br>Semoga kamu selalu bahagia🤲🏻,panjang umur🤲🏻, ya sayang💖💗.Dan terus bersamaku ya sayangku kita lewati rintangan yang ada di depan sana💖💗🥰💞"</br></h4>
+        <h2>NOTE</h2>
+        <h4>dunia punya jutaan  cara untuk memisahkan kita.<br>
+            maka kita punya miliaran cara agar terus bersama.selamanya💖💗🥰💞<br>  </h4>
+   
+   
+
+  
+  <p>Masukkan tanggal lahirmu untuk melihat kapan kamu lahir!💗</p>
+  
+
+  <input type="date" id="tanggalLahir">
+  <button onclick="hitungDanTampilkan()">mauskkan</button>
+  
+  <div class="hasil" id="output"></div>
+
+  <script>
+    function formatTanggal(date) {
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      return date.toLocaleDateString('id-ID', options);
+    }
+
+    function hitungDanTampilkan() {
+      const inputTanggalLahir = document.getElementById('tanggalLahir').value;
+      const output = document.getElementById('output');
+
+      if (!inputTanggalLahir) {
+        output.innerHTML = "Tolong masukkan tanggal lahirmu ya sayang... 🤍";
+        return;
+      }
+
+      const tanggalLahir = new Date(inputTanggalLahir + 'T00:00:00');
+      const hariIni = new Date();
+      hariIni.setHours(0, 0, 0, 0);
+
+      const bedaWaktu = hariIni - tanggalLahir;
+      const bedaHari = Math.floor(bedaWaktu / (1000 * 60 * 60 * 24));
+
+      const ulangTahun = new Date(tanggalLahir);
+      const tahunIni = hariIni.getFullYear();
+      ulangTahun.setFullYear(tahunIni);
+
+      if (hariIni > ulangTahun) {
+        ulangTahun.setFullYear(tahunIni + 1);
+      }
+
+      const sisaHari = Math.ceil((ulangTahun - hariIni) / (1000 * 60 * 60 * 24));
+      const usiaAkanDatang = ulangTahun.getFullYear() - tanggalLahir.getFullYear();
+
+      const tglLahirFormatted = formatTanggal(tanggalLahir);
+      const tglHariIniFormatted = formatTanggal(hariIni);
+      const tglUltahFormatted = formatTanggal(ulangTahun);
+
+      let hasil = `
+        🤍 Hai sayangku! Hari ini adalah <strong>${tglHariIniFormatted}</strong><br><br>
+        Kamu lahir pada hari <strong>${tglLahirFormatted}</strong> 🌸<br>
+        Sampai hari ini, kamu sudah hidup selama <strong>${bedaHari} hari</strong> penuh sayang 🥰<br><br>
+        Ulang tahunmu yang ke-<strong>${usiaAkanDatang}</strong> akan jatuh pada <strong>${tglUltahFormatted}</strong> 🎂<br>
+        Tinggal <strong>${sisaHari} hari lagi</strong> menuju hari spesialmu!. <br>Terus bersama ku ya sayang kita lalui rintangannya💝
+      `;
+
+      if (sisaHari === 0) {
+        hasil += `<br><br>🎊 Selamat ulang tahun ya sayang! Semoga hari-harimu selalu penuh tawa, peluk hangat, dan sayang dariku 💕
+        <br>Terus bersama ku ya sayang `;
+      }
+
+      output.innerHTML = hasil;
+    }
+
+    document.addEventListener("mousemove", function(e) {
+      const love = document.createElement("div");
+      love.classList.add("love");
+      love.textContent = "🤍";
+      love.style.left = e.pageX + "px";
+      love.style.top = e.pageY + "px";
+      document.body.appendChild(love);
+
+      setTimeout(() => {
+        love.remove();
+      }, 5000);
+    });
+  </script>
+
+</body>
+</html>
